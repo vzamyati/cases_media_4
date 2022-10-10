@@ -47,6 +47,14 @@ h2 {
 
 .layout-header {
     padding: 12px 0;
+    background: #131C2F;
+    border-bottom: 1px solid rgba(233, 236, 243, 0.25);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
 }
 
 .layout-header > .layout-container {
@@ -84,16 +92,57 @@ h2 {
     display: block;
 }
 
-.layout-nav > ul > li > a:hover {
+.layout-nav > ul > li > a:hover,
+.layout-nav > ul> li:hover > a {
     background: rgba(233, 236, 243, 0.1);
     border-radius: 8px;
     padding: 6px 10px;
     gap: 10px;
     display: block;
+    color: #1B8BE0;
+}
+
+.layout-nav > ul > .dropdown:hover > .dropdown-wrapper {
+    display: block;
+}
+
+.layout-nav > ul > .dropdown {
+    position: relative;
+}
+
+.layout-content {
+    margin-top: 125px;
 }
 
 .dropdown-wrapper {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 12px;
+    z-index: 120;
+}
+
+.dropdown-menu {
+    list-style: none;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 0px 1px rgba(14, 16, 20, 0.04), 0px 0px 2px rgba(14, 16, 20, 0.08), 0px 4px 12px rgba(14, 16, 20, 0.08);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 0;
+    min-width: 221px;
+}
+
+.dropdown-menu > li > a {
+    display: block;
+    padding: 8px;
+    color: #131C2F;
+}
+
+.dropdown-menu > li > a:hover {
+    background: #EBF6FF;
+    border-radius: 4px;
+    color: #1B8BE0;
 }
 
 .section-grid {
@@ -109,12 +158,55 @@ h2 {
     grid-gap: 40px 20px;
 }
 
+.article-grid > article {
+    position: relative;
+}
+
 .section-header h2 {
     font-family: 'Arial';
     font-style: normal;
     font-weight: 700;
     font-size: 48px;
     line-height: 1.15;
+    position: sticky;
+    top: 125px;
+    z-index: 50;
+}
+
+.article-image {
+    position: relative;
+}
+
+.article-comments {
+    background: #FFFACB;
+
+    padding: 16px;
+    border-radius: 90000px;
+
+    width: 80px;
+    height: 80px;
+
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    z-index: 30;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-comments .icon {
+    margin-right: 5px;
+}
+
+.article-comments .counter {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.31;
+    color: #131C2F;
 }
 
 .article-info {
@@ -154,6 +246,16 @@ h2 {
 .article-date {
     color: #B1B1B1;
     font-weight: 700;
+}
+
+.article-link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 .article-tags {
